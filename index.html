@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  
+
   <!-- Primary Meta Tags -->
   <title>ShapeSet — Train Like The Legends | Fitness & Workout App</title>
   <meta name="title" content="ShapeSet — Train Like The Legends | Fitness & Workout App" />
-  <meta name="description" content="Build a champion's physique with structured workout programs inspired by golden-era bodybuilding legends. Master proper form and track progressive overload." />
-  <meta name="keywords" content="ShapeSet, workout app, fitness app, bodybuilding programs, Dorian Yates split, Ronnie Coleman workout, CBum training, golden era physique, gym tracker" />
+  <meta name="description"
+    content="Build a champion's physique with structured workout programs inspired by golden-era bodybuilding legends. Master proper form and track progressive overload." />
+  <meta name="keywords"
+    content="ShapeSet, workout app, fitness app, bodybuilding programs, Dorian Yates split, Ronnie Coleman workout, CBum training, golden era physique, gym tracker" />
   <meta name="author" content="ShapeSet" />
   <meta name="theme-color" content="#0b0b0c" />
 
@@ -16,14 +19,16 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://shapeset.app/" />
   <meta property="og:title" content="ShapeSet — Train Like The Legends" />
-  <meta property="og:description" content="Follow classic training programs inspired by legendary bodybuilders. Available now on Google Play." />
+  <meta property="og:description"
+    content="Follow classic training programs inspired by legendary bodybuilders. Available now on Google Play." />
   <meta property="og:image" content="assets/shapeset_gold_logo.png" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://shapeset.app/" />
   <meta property="twitter:title" content="ShapeSet — Train Like The Legends" />
-  <meta property="twitter:description" content="Follow classic training programs inspired by legendary bodybuilders. Available now on Google Play." />
+  <meta property="twitter:description"
+    content="Follow classic training programs inspired by legendary bodybuilders. Available now on Google Play." />
   <meta property="twitter:image" content="assets/shapeset_gold_logo.png" />
 
   <!-- Favicon -->
@@ -32,7 +37,9 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap"
+    rel="stylesheet" />
 
   <style>
     /* ==========================================================================
@@ -66,7 +73,9 @@
       --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -86,7 +95,7 @@
       overflow-x: hidden;
       line-height: 1.6;
       background: var(--bg-dark);
-      background-image: 
+      background-image:
         radial-gradient(circle at 50% 0%, rgba(212, 160, 23, 0.12) 0%, transparent 50%),
         radial-gradient(circle at 100% 60%, rgba(212, 160, 23, 0.05) 0%, transparent 40%);
       min-height: 100vh;
@@ -103,7 +112,8 @@
       display: block;
     }
 
-    button, input {
+    button,
+    input {
       font-family: inherit;
       border: none;
       outline: none;
@@ -112,7 +122,8 @@
     /* Container */
     .container {
       width: 100%;
-      max-width: 480px; /* Mobile first focus */
+      max-width: 480px;
+      /* Mobile first focus */
       margin: 0 auto;
       padding: 0 20px;
     }
@@ -154,6 +165,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
     }
 
     .brand-logo {
@@ -163,6 +175,7 @@
       font-weight: 800;
       font-size: 1.25rem;
       letter-spacing: 0.5px;
+      flex-shrink: 0;
     }
 
     .brand-logo img {
@@ -170,6 +183,12 @@
       height: 40px;
       object-fit: contain;
       filter: drop-shadow(0 2px 8px rgba(212, 160, 23, 0.4));
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
     .nav-badge {
@@ -185,6 +204,7 @@
       letter-spacing: 0.5px;
       color: var(--gold-light);
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .nav-badge .dot {
@@ -196,9 +216,145 @@
       animation: pulse 2s infinite;
     }
 
+    /* Language Switcher Styling */
+    .lang-selector-wrap {
+      position: relative;
+    }
+
+    .lang-pill-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      padding: 3px 4px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35);
+    }
+
+    .lang-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 5px 10px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--text-sub);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      user-select: none;
+    }
+
+    .lang-pill-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .lang-pill-btn.active {
+      color: #0b0b0c;
+      background: linear-gradient(135deg, #f5d061 0%, #d4a017 100%);
+      font-weight: 800;
+      box-shadow: 0 2px 10px rgba(212, 160, 23, 0.4);
+    }
+
+    .lang-dropdown-container {
+      position: relative;
+    }
+
+    .lang-dropdown-trigger {
+      padding-right: 8px;
+    }
+
+    .lang-dropdown-trigger svg {
+      transition: transform 0.2s ease;
+    }
+
+    .lang-dropdown-container.open .lang-dropdown-trigger svg {
+      transform: rotate(180deg);
+    }
+
+    .lang-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 148px;
+      background: #141417;
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-md);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.85);
+      padding: 6px;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-6px);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .lang-dropdown-container.open .lang-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .lang-dropdown-item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-sub);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      transition: var(--transition);
+    }
+
+    .lang-dropdown-item:hover {
+      background: rgba(212, 160, 23, 0.12);
+      color: var(--gold-light);
+    }
+
+    .lang-dropdown-item.active {
+      background: rgba(212, 160, 23, 0.2);
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+
+    .lang-flag {
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    @media (max-width: 580px) {
+      .nav-badge {
+        display: none;
+      }
+    }
+
     @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.8); }
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(0.8);
+      }
     }
 
     /* ==========================================================================
@@ -209,6 +365,35 @@
       text-align: center;
       position: relative;
     }
+
+    /* Fixed Background Watermark Logo */
+    .fixed-bg-logo {
+      position: fixed;
+      top: clamp(280px, 35vh, 330px);
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 900px;
+      max-width: 95vw;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      opacity: 0.12;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .fixed-bg-logo img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+    }
+
 
     .hero-tag {
       display: inline-flex;
@@ -435,6 +620,7 @@
         flex-wrap: wrap;
         overflow-x: visible;
       }
+
       .mockup-card {
         flex: 0 0 240px;
       }
@@ -739,22 +925,37 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 20px;
+      gap: 16px;
       margin-bottom: 24px;
       flex-wrap: wrap;
     }
 
-    .footer-link {
-      color: var(--text-sub);
-      font-weight: 500;
-      transition: var(--transition);
+    .footer-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
+      color: var(--text-sub);
+      transition: var(--transition);
+      text-decoration: none;
     }
 
-    .footer-link:hover {
+    .footer-icon-btn svg {
+      width: 20px;
+      height: 20px;
+      transition: var(--transition);
+    }
+
+    .footer-icon-btn:hover {
       color: var(--gold-light);
+      border-color: var(--border-gold);
+      background: rgba(212, 160, 23, 0.12);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(212, 160, 23, 0.25);
     }
 
     /* Mandatory Disclaimer Box */
@@ -777,7 +978,13 @@
     }
   </style>
 </head>
+
 <body>
+
+  <!-- FIXED BACKGROUND WATERMARK LOGO -->
+  <div class="fixed-bg-logo" aria-hidden="true">
+    <img src="assets/shapeset_gold_logo.png" alt="" />
+  </div>
 
   <!-- HEADER -->
   <header class="site-header">
@@ -786,8 +993,38 @@
         <img src="assets/shapeset_gold_logo.png" alt="ShapeSet Logo" />
         <span class="gold-gradient-text">ShapeSet</span>
       </div>
-      <div class="nav-badge">
-        <span class="dot"></span> Live on Google Play
+
+      <div class="nav-right">
+        <div class="nav-badge">
+          <span class="dot"></span> <span data-i18n="navLive">Live on Google Play</span>
+        </div>
+
+        <!-- LANGUAGE SELECTOR -->
+        <div class="lang-selector-wrap">
+          <div class="lang-pill-group" role="group" aria-label="Language selector">
+            <button type="button" class="lang-pill-btn active" data-lang="en" onclick="setLanguage('en')">EN</button>
+            <button type="button" class="lang-pill-btn" data-lang="fr" onclick="setLanguage('fr')">FR</button>
+
+            <!-- Dropdown for more languages: ES, PT, DE -->
+            <div class="lang-dropdown-container" id="langDropdownContainer">
+              <button type="button" class="lang-pill-btn lang-dropdown-trigger" id="langDropdownTrigger" onclick="toggleLangDropdown(event)" aria-haspopup="true" aria-expanded="false" title="More languages">
+                <span id="langDropdownLabel" data-i18n="moreLang">More</span>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+              </button>
+              <div class="lang-dropdown-menu" id="langDropdownMenu" role="menu">
+                <button type="button" class="lang-dropdown-item" data-lang="es" role="menuitem" onclick="setLanguage('es')">
+                  <span class="lang-flag">🇪🇸</span> <span>Español</span>
+                </button>
+                <button type="button" class="lang-dropdown-item" data-lang="pt" role="menuitem" onclick="setLanguage('pt')">
+                  <span class="lang-flag">🇵🇹</span> <span>Português</span>
+                </button>
+                <button type="button" class="lang-dropdown-item" data-lang="de" role="menuitem" onclick="setLanguage('de')">
+                  <span class="lang-flag">🇩🇪</span> <span>Deutsch</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -796,24 +1033,27 @@
     <!-- HERO SECTION -->
     <section class="hero-section">
       <div class="container">
-        <div class="hero-tag">⚡ Train Like The Legends</div>
+        <div class="hero-tag" data-i18n="heroTag">⚡ Train Like The Legends</div>
         <h1 class="hero-title">
-          BUILD A <br />
-          <span class="gold-gradient-text">CHAMPION'S</span> PHYSIQUE
+          <span data-i18n="heroTitlePrefix">BUILD A </span><br />
+          <span class="gold-gradient-text" data-i18n="heroTitleHighlight">CHAMPION'S</span><span data-i18n="heroTitleSuffix"> PHYSIQUE</span>
         </h1>
-        <p class="hero-subtitle">
-          Master classic workout splits inspired by bodybuilding icons. Access structured weekly routines, exercise form guidance, and precision logging.
+        <p class="hero-subtitle" data-i18n="heroSubtitle">
+          Master classic workout splits inspired by bodybuilding icons. Access structured weekly routines, exercise form
+          guidance, and precision logging.
         </p>
 
         <!-- CTA Buttons -->
         <div class="cta-group">
           <!-- Google Play Live Link -->
-          <a href="https://play.google.com/store/apps/details?id=com.hazem.shapeset&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" class="btn-store btn-google-play">
+          <a href="https://play.google.com/store/apps/details?id=com.hazem.shapeset&pcampaignid=web_share"
+            target="_blank" rel="noopener noreferrer" class="btn-store btn-google-play">
             <svg class="btn-store-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+              <path
+                d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
             </svg>
             <div class="btn-store-text">
-              <span class="subtext">GET IT ON</span>
+              <span class="subtext" data-i18n="storeGetItOn">GET IT ON</span>
               <span class="maintext">Google Play</span>
             </div>
           </a>
@@ -821,28 +1061,31 @@
           <!-- App Store Teaser (Disabled) -->
           <div class="btn-store btn-app-store-disabled" title="iOS version coming very soon">
             <svg class="btn-store-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.09,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z"/>
+              <path
+                d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.09,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z" />
             </svg>
             <div class="btn-store-text">
-              <span class="subtext">DOWNLOAD ON THE</span>
+              <span class="subtext" data-i18n="storeDownloadOn">DOWNLOAD ON THE</span>
               <span class="maintext">App Store</span>
             </div>
-            <span class="badge-coming-soon">Coming Soon</span>
+            <span class="badge-coming-soon" data-i18n="storeComingSoon">Coming Soon</span>
           </div>
         </div>
 
         <div class="hero-stats">
           <div class="stat-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            <span>4.9 App Rating</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+            <span data-i18n="statRating">4.9 App Rating</span>
           </div>
           <div class="stat-item">•</div>
           <div class="stat-item">
-            <span>Pro Programs</span>
+            <span data-i18n="statPrograms">Pro Programs</span>
           </div>
           <div class="stat-item">•</div>
           <div class="stat-item">
-            <span>Free Trial Available</span>
+            <span data-i18n="statTrial">Free Trial Available</span>
           </div>
         </div>
       </div>
@@ -852,8 +1095,8 @@
     <section class="mockup-section">
       <div class="container">
         <div class="section-title-wrap">
-          <span class="section-eyebrow">App Experience</span>
-          <h2 class="section-title">BUILT FOR <span class="gold-gradient-text">SERIOUS ATHLETES</span></h2>
+          <span class="section-eyebrow" data-i18n="mockupEyebrow">App Experience</span>
+          <h2 class="section-title"><span data-i18n="mockupTitlePrefix">BUILT FOR </span><span class="gold-gradient-text" data-i18n="mockupTitleHighlight">SERIOUS ATHLETES</span></h2>
         </div>
 
         <div class="mockup-carousel-container">
@@ -865,8 +1108,8 @@
                 <img src="assets/1.jpg" alt="ShapeSet App Home Dashboard" class="phone-screen" loading="lazy" />
               </div>
               <div class="mockup-caption">
-                <div class="mockup-caption-title">Dashboard</div>
-                <div class="mockup-caption-desc">Structured splits & progress overview</div>
+                <div class="mockup-caption-title" data-i18n="mockup1Title">Dashboard</div>
+                <div class="mockup-caption-desc" data-i18n="mockup1Desc">Structured splits & progress overview</div>
               </div>
             </div>
 
@@ -877,8 +1120,8 @@
                 <img src="assets/2.jpg" alt="ShapeSet Workout Programs" class="phone-screen" loading="lazy" />
               </div>
               <div class="mockup-caption">
-                <div class="mockup-caption-title">Legendary Routines</div>
-                <div class="mockup-caption-desc">Proven multi-day workout splits</div>
+                <div class="mockup-caption-title" data-i18n="mockup2Title">Legendary Routines</div>
+                <div class="mockup-caption-desc" data-i18n="mockup2Desc">Proven multi-day workout splits</div>
               </div>
             </div>
 
@@ -889,8 +1132,8 @@
                 <img src="assets/3.jpg" alt="ShapeSet Exercise Details and Form" class="phone-screen" loading="lazy" />
               </div>
               <div class="mockup-caption">
-                <div class="mockup-caption-title">Proper Form</div>
-                <div class="mockup-caption-desc">Detailed execution & technique cues</div>
+                <div class="mockup-caption-title" data-i18n="mockup3Title">Proper Form</div>
+                <div class="mockup-caption-desc" data-i18n="mockup3Desc">Detailed execution & technique cues</div>
               </div>
             </div>
 
@@ -901,16 +1144,20 @@
                 <img src="assets/4.jpg" alt="ShapeSet Tracker" class="phone-screen" loading="lazy" />
               </div>
               <div class="mockup-caption">
-                <div class="mockup-caption-title">Workout Tracker</div>
-                <div class="mockup-caption-desc">Log weight, reps & progressive overload</div>
+                <div class="mockup-caption-title" data-i18n="mockup4Title">Workout Tracker</div>
+                <div class="mockup-caption-desc" data-i18n="mockup4Desc">Log weight, reps & progressive overload</div>
               </div>
             </div>
           </div>
 
           <div class="slider-hint">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            <span>Swipe to explore screens</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            <span data-i18n="sliderHint">Swipe to explore screens</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
           </div>
         </div>
       </div>
@@ -920,45 +1167,62 @@
     <section class="features-section">
       <div class="container">
         <div class="section-title-wrap">
-          <span class="section-eyebrow">Key Features</span>
-          <h2 class="section-title">WHAT'S INSIDE <span class="gold-gradient-text">SHAPESET</span></h2>
+          <span class="section-eyebrow" data-i18n="featuresEyebrow">Key Features</span>
+          <h2 class="section-title"><span data-i18n="featuresTitlePrefix">WHAT'S INSIDE </span><span class="gold-gradient-text" data-i18n="featuresTitleHighlight">SHAPESET</span></h2>
         </div>
 
         <div class="features-grid">
           <!-- Feature 1 -->
           <div class="feature-card">
             <div class="feature-icon-wrapper">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+              </svg>
             </div>
-            <h3 class="feature-title">Legendary Programs</h3>
-            <p class="feature-desc">Explore structured routines inspired by the training split philosophies of classic golden-era bodybuilding legends.</p>
+            <h3 class="feature-title" data-i18n="feat1Title">Legendary Programs</h3>
+            <p class="feature-desc" data-i18n="feat1Desc">Explore structured routines inspired by the training split philosophies of classic
+              golden-era bodybuilding legends.</p>
           </div>
 
           <!-- Feature 2 -->
           <div class="feature-card">
             <div class="feature-icon-wrapper">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v8M8 12h8" />
+              </svg>
             </div>
-            <h3 class="feature-title">Learn Proper Form</h3>
-            <p class="feature-desc">Step-by-step guidance and execution cues for every movement to maximize hypertrophy safely and prevent injury.</p>
+            <h3 class="feature-title" data-i18n="feat2Title">Learn Proper Form</h3>
+            <p class="feature-desc" data-i18n="feat2Desc">Step-by-step guidance and execution cues for every movement to maximize hypertrophy
+              safely and prevent injury.</p>
           </div>
 
           <!-- Feature 3 -->
           <div class="feature-card">
             <div class="feature-icon-wrapper">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
             </div>
-            <h3 class="feature-title">Structured Weekly Plans</h3>
-            <p class="feature-desc">Multi-day split programs organized day-by-day so you always know what to train, rest, and repeat.</p>
+            <h3 class="feature-title" data-i18n="feat3Title">Structured Weekly Plans</h3>
+            <p class="feature-desc" data-i18n="feat3Desc">Multi-day split programs organized day-by-day so you always know what to train,
+              rest, and repeat.</p>
           </div>
 
           <!-- Feature 4 -->
           <div class="feature-card">
             <div class="feature-icon-wrapper">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
             </div>
-            <h3 class="feature-title">Track Your Progress</h3>
-            <p class="feature-desc">Log your sets, weight, and reps cleanly to guarantee continuous progressive overload over time.</p>
+            <h3 class="feature-title" data-i18n="feat4Title">Track Your Progress</h3>
+            <p class="feature-desc" data-i18n="feat4Desc">Log your sets, weight, and reps cleanly to guarantee continuous progressive overload
+              over time.</p>
           </div>
         </div>
       </div>
@@ -968,9 +1232,9 @@
     <section class="inspired-section">
       <div class="container">
         <div class="section-title-wrap">
-          <span class="section-eyebrow">Classic Methodologies</span>
-          <h2 class="section-title">INSPIRED BY <span class="gold-gradient-text">LEGENDS</span></h2>
-          <p class="hero-subtitle" style="margin-top: 10px; font-size: 0.88rem;">
+          <span class="section-eyebrow" data-i18n="inspiredEyebrow">Classic Methodologies</span>
+          <h2 class="section-title"><span data-i18n="inspiredTitlePrefix">INSPIRED BY </span><span class="gold-gradient-text" data-i18n="inspiredTitleHighlight">LEGENDS</span></h2>
+          <p class="hero-subtitle" style="margin-top: 10px; font-size: 0.88rem;" data-i18n="inspiredSubtitle">
             Programs structured around the publicly documented split frameworks of world-class champion physiques:
           </p>
         </div>
@@ -994,17 +1258,17 @@
     <section class="signup-section">
       <div class="container">
         <div class="signup-card">
-          <h2 class="signup-title">BE FIRST FOR <span class="gold-gradient-text">iOS LAUNCH</span></h2>
-          <p class="signup-subtitle">Enter your email to get an instant notification as soon as ShapeSet is live on the Apple App Store.</p>
-          
+          <h2 class="signup-title"><span data-i18n="signupTitlePrefix">BE FIRST FOR </span><span class="gold-gradient-text" data-i18n="signupTitleHighlight">iOS LAUNCH</span></h2>
+          <p class="signup-subtitle" data-i18n="signupSubtitle">Enter your email to get an instant notification as soon as ShapeSet is live on the
+            Apple App Store.</p>
+
           <!-- Front-end Form -->
-          <!-- TODO: Connect this form to your preferred backend or form service (e.g. Formspree, Mailchimp, Firebase, or Supabase) -->
           <form class="signup-form" id="iosNotifyForm" onsubmit="handleNotifySubmit(event)">
-            <input type="email" class="signup-input" placeholder="Enter your email" required id="userEmail" />
-            <button type="submit" class="signup-btn">Notify Me</button>
+            <input type="email" class="signup-input" placeholder="Enter your email" required id="userEmail" data-i18n-attr="placeholder:signupPlaceholder" />
+            <button type="submit" class="signup-btn" data-i18n="signupBtn">Notify Me</button>
           </form>
 
-          <div class="form-success-msg" id="successMessage">
+          <div class="form-success-msg" id="successMessage" data-i18n="signupSuccess">
             ✓ Thank you! We will notify you when ShapeSet launches on iOS.
           </div>
         </div>
@@ -1021,35 +1285,377 @@
       </div>
 
       <div class="footer-links">
-        <a href="https://instagram.com/shapeset.app" target="_blank" rel="noopener noreferrer" class="footer-link">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          <span>Instagram (@shapeset.app)</span>
+        <a href="https://www.instagram.com/winter.arc.prime?xtok=MTBjd3VidTVoZ3N4Yw==" target="_blank" rel="noopener noreferrer" class="footer-icon-btn" aria-label="Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
         </a>
-        <a href="mailto:support@shapeset.app" class="footer-link">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <span>support@shapeset.app</span>
+        <a href="https://www.tiktok.com/@shapeset8?_r=1&_t=ZS-9ATaP4Ci67g" target="_blank" rel="noopener noreferrer" class="footer-icon-btn" aria-label="TikTok" title="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.89 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.32 0 .62.06.9.16V9.45a6.37 6.37 0 0 0-.9-.07A6.34 6.34 0 0 0 3 15.72a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.47a8.27 8.27 0 0 0 4.82 1.55v-3.3a4.83 4.83 0 0 1-.91-.03z"/>
+          </svg>
+        </a>
+        <a href="mailto:shapesetsupport@gmail.com" class="footer-icon-btn" aria-label="Email Support" title="shapesetsupport@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
         </a>
       </div>
 
       <!-- MANDATORY LEGAL DISCLAIMER -->
-      <div class="disclaimer-box">
-        <strong>Legal Disclaimer:</strong> Programs are inspired by publicly documented training methods. This app is not affiliated with or endorsed by any athlete mentioned.
+      <div class="disclaimer-box" data-i18n="disclaimer">
+        <strong>Legal Disclaimer:</strong> Programs are inspired by publicly documented training methods. This app is
+        not affiliated with or endorsed by any athlete mentioned.
       </div>
 
-      <p class="copyright">© 2026 ShapeSet. All rights reserved.</p>
+      <p class="copyright" data-i18n="copyright">© 2026 ShapeSet. All rights reserved.</p>
     </div>
   </footer>
 
   <!-- SCRIPT -->
   <script>
+    const translations = {
+      en: {
+        navLive: "Live on Google Play",
+        moreLang: "More",
+        heroTag: "⚡ Train Like The Legends",
+        heroTitlePrefix: "BUILD A ",
+        heroTitleHighlight: "CHAMPION'S",
+        heroTitleSuffix: " PHYSIQUE",
+        heroSubtitle: "Master classic workout splits inspired by bodybuilding icons. Access structured weekly routines, exercise form guidance, and precision logging.",
+        storeGetItOn: "GET IT ON",
+        storeDownloadOn: "DOWNLOAD ON THE",
+        storeComingSoon: "Coming Soon",
+        statRating: "4.9 App Rating",
+        statPrograms: "Pro Programs",
+        statTrial: "Free Trial Available",
+        mockupEyebrow: "App Experience",
+        mockupTitlePrefix: "BUILT FOR ",
+        mockupTitleHighlight: "SERIOUS ATHLETES",
+        mockup1Title: "Dashboard",
+        mockup1Desc: "Structured splits & progress overview",
+        mockup2Title: "Legendary Routines",
+        mockup2Desc: "Proven multi-day workout splits",
+        mockup3Title: "Proper Form",
+        mockup3Desc: "Detailed execution & technique cues",
+        mockup4Title: "Workout Tracker",
+        mockup4Desc: "Log weight, reps & progressive overload",
+        sliderHint: "Swipe to explore screens",
+        featuresEyebrow: "Key Features",
+        featuresTitlePrefix: "WHAT'S INSIDE ",
+        featuresTitleHighlight: "SHAPESET",
+        feat1Title: "Legendary Programs",
+        feat1Desc: "Explore structured routines inspired by the training split philosophies of classic golden-era bodybuilding legends.",
+        feat2Title: "Learn Proper Form",
+        feat2Desc: "Step-by-step guidance and execution cues for every movement to maximize hypertrophy safely and prevent injury.",
+        feat3Title: "Structured Weekly Plans",
+        feat3Desc: "Multi-day split programs organized day-by-day so you always know what to train, rest, and repeat.",
+        feat4Title: "Track Your Progress",
+        feat4Desc: "Log your sets, weight, and reps cleanly to guarantee continuous progressive overload over time.",
+        inspiredEyebrow: "Classic Methodologies",
+        inspiredTitlePrefix: "INSPIRED BY ",
+        inspiredTitleHighlight: "LEGENDS",
+        inspiredSubtitle: "Programs structured around the publicly documented split frameworks of world-class champion physiques:",
+        signupTitlePrefix: "BE FIRST FOR ",
+        signupTitleHighlight: "iOS LAUNCH",
+        signupSubtitle: "Enter your email to get an instant notification as soon as ShapeSet is live on the Apple App Store.",
+        signupPlaceholder: "Enter your email",
+        signupBtn: "Notify Me",
+        signupSuccess: "✓ Thank you! We will notify you when ShapeSet launches on iOS.",
+        disclaimer: "Legal Disclaimer: Programs are inspired by publicly documented training methods. This app is not affiliated with or endorsed by any athlete mentioned.",
+        copyright: "© 2026 ShapeSet. All rights reserved."
+      },
+      fr: {
+        navLive: "Dispo sur Google Play",
+        moreLang: "Plus",
+        heroTag: "⚡ Entraînez-vous comme les légendes",
+        heroTitlePrefix: "BÂTISSEZ UN ",
+        heroTitleHighlight: "PHYSIQUE",
+        heroTitleSuffix: " DE CHAMPION",
+        heroSubtitle: "Maîtrisez les programmes d'entraînement classiques inspirés des icônes du culturisme. Accédez à des routines hebdomadaires structurées, des conseils d'exécution et un suivi précis.",
+        storeGetItOn: "TÉLÉCHARGER SUR",
+        storeDownloadOn: "TÉLÉCHARGER SUR L'",
+        storeComingSoon: "Bientôt disponible",
+        statRating: "Note 4.9",
+        statPrograms: "Programmes Pro",
+        statTrial: "Essai gratuit disponible",
+        mockupEyebrow: "Expérience Application",
+        mockupTitlePrefix: "CONÇU POUR LES ",
+        mockupTitleHighlight: "ATHLÈTES EXIGEANTS",
+        mockup1Title: "Tableau de Bord",
+        mockup1Desc: "Programmes structurés & suivi global",
+        mockup2Title: "Routines Légendaires",
+        mockup2Desc: "Splits d'entraînement éprouvés",
+        mockup3Title: "Exécution Parfaite",
+        mockup3Desc: "Conseils techniques détaillés",
+        mockup4Title: "Suivi des Séances",
+        mockup4Desc: "Enregistrez poids, répétitions et progression",
+        sliderHint: "Glissez pour explorer les écrans",
+        featuresEyebrow: "Fonctionnalités Clés",
+        featuresTitlePrefix: "DÉCOUVREZ ",
+        featuresTitleHighlight: "SHAPESET",
+        feat1Title: "Programmes Légendaires",
+        feat1Desc: "Découvrez des routines structurées inspirées des philosophies d'entraînement de l'âge d'or du culturisme.",
+        feat2Title: "Apprenez la Bonne Forme",
+        feat2Desc: "Conseils d'exécution étape par étape pour chaque mouvement afin de maximiser l'hypertrophie en toute sécurité.",
+        feat3Title: "Plans Hebdomadaires Structurés",
+        feat3Desc: "Programmes multi-jours organisés par session pour toujours savoir quoi entraîner, récupérer et répéter.",
+        feat4Title: "Suivez Votre Progression",
+        feat4Desc: "Consignez vos séries, charges et répétitions pour garantir une surcharge progressive continue au fil du temps.",
+        inspiredEyebrow: "Méthodologies Classiques",
+        inspiredTitlePrefix: "INSPIRÉ PAR LES ",
+        inspiredTitleHighlight: "LÉGENDES",
+        inspiredSubtitle: "Des programmes conçus selon les méthodes publiquement documentées des plus grands champions du monde :",
+        signupTitlePrefix: "SOYEZ PRÊTS POUR ",
+        signupTitleHighlight: "LE LANCEMENT iOS",
+        signupSubtitle: "Entrez votre adresse email pour être averti dès que ShapeSet sera disponible sur l'App Store d'Apple.",
+        signupPlaceholder: "Entrez votre email",
+        signupBtn: "M'avertir",
+        signupSuccess: "✓ Merci ! Nous vous préviendrons dès le lancement de ShapeSet sur iOS.",
+        disclaimer: "Avis juridique : Les programmes sont inspirés de méthodes d'entraînement publiquement documentées. Cette application n'est affiliée ni approuvée par aucun athlète mentionné.",
+        copyright: "© 2026 ShapeSet. Tous droits réservés."
+      },
+      es: {
+        navLive: "En Google Play",
+        moreLang: "Más",
+        heroTag: "⚡ Entrena como las leyendas",
+        heroTitlePrefix: "CONSTRUYE UN ",
+        heroTitleHighlight: "FÍSICO",
+        heroTitleSuffix: " DE CAMPEÓN",
+        heroSubtitle: "Domina las rutinas de entrenamiento clásicas inspiradas en íconos del culturismo. Accede a planes semanales estructurados, guías de técnica y registro de precisión.",
+        storeGetItOn: "DISPONIBLE EN",
+        storeDownloadOn: "DESCARGAR EN",
+        storeComingSoon: "Próximamente",
+        statRating: "Calificación 4.9",
+        statPrograms: "Programas Pro",
+        statTrial: "Prueba gratis disponible",
+        mockupEyebrow: "Experiencia de la App",
+        mockupTitlePrefix: "CREADO PARA ",
+        mockupTitleHighlight: "ATLETAS SERIOS",
+        mockup1Title: "Panel Principal",
+        mockup1Desc: "Rutinas estructuradas y progreso general",
+        mockup2Title: "Rutinas Legendarias",
+        mockup2Desc: "Splits de entrenamiento comprobados",
+        mockup3Title: "Técnica Correcta",
+        mockup3Desc: "Consejos detallados de ejecución y forma",
+        mockup4Title: "Registro de Entrenamientos",
+        mockup4Desc: "Registra peso, repeticiones y sobrecarga",
+        sliderHint: "Desliza para explorar pantallas",
+        featuresEyebrow: "Características Clave",
+        featuresTitlePrefix: "DENTRO DE ",
+        featuresTitleHighlight: "SHAPESET",
+        feat1Title: "Programas Legendarios",
+        feat1Desc: "Explora rutinas estructuradas inspiradas en las filosofías de entrenamiento de la era dorada del culturismo.",
+        feat2Title: "Aprende la Forma Correcta",
+        feat2Desc: "Guías paso a paso e indicaciones técnicas para cada movimiento para maximizar la hipertrofia de forma segura.",
+        feat3Title: "Planes Semanales Estructurados",
+        feat3Desc: "Programas divididos día por día para saber con exactitud qué entrenar, descansar y repetir.",
+        feat4Title: "Registra tu Progreso",
+        feat4Desc: "Registra series, peso y repeticiones de forma limpia para garantizar una sobrecarga progresiva constante.",
+        inspiredEyebrow: "Metodologías Clásicas",
+        inspiredTitlePrefix: "INSPIRADO EN LAS ",
+        inspiredTitleHighlight: "LEYENDAS",
+        inspiredSubtitle: "Programas estructurados en base a los métodos documentados públicamente de físicos campeones mundiales:",
+        signupTitlePrefix: "SÉ EL PRIMERO EN ",
+        signupTitleHighlight: "EL LANZAMIENTO iOS",
+        signupSubtitle: "Ingresa tu email para recibir una notificación en cuanto ShapeSet esté disponible en Apple App Store.",
+        signupPlaceholder: "Ingresa tu email",
+        signupBtn: "Avísame",
+        signupSuccess: "✓ ¡Gracias! Te avisaremos cuando ShapeSet se lance en iOS.",
+        disclaimer: "Descargo legal: Los programas están inspirados en métodos de entrenamiento documentados públicamente. Esta app no está afiliada ni respaldada por ningún atleta mencionado.",
+        copyright: "© 2026 ShapeSet. Todos los derechos reservados."
+      },
+      pt: {
+        navLive: "No Google Play",
+        moreLang: "Mais",
+        heroTag: "⚡ Treine como as lendas",
+        heroTitlePrefix: "CONSTRUA UM ",
+        heroTitleHighlight: "FÍSICO",
+        heroTitleSuffix: " DE CAMPEÃO",
+        heroSubtitle: "Domine divisões de treino clássicas inspiradas em ícones do fisiculturismo. Acesse rotinas semanais estruturadas, guias de execução e registro de precisão.",
+        storeGetItOn: "DISPONÍVEL NO",
+        storeDownloadOn: "BAIXAR NA",
+        storeComingSoon: "Em breve",
+        statRating: "Avaliação 4.9",
+        statPrograms: "Programas Pro",
+        statTrial: "Teste gratuito disponível",
+        mockupEyebrow: "Experiência do App",
+        mockupTitlePrefix: "CRIADO PARA ",
+        mockupTitleHighlight: "ATLETAS DEDICADOS",
+        mockup1Title: "Painel de Controle",
+        mockup1Desc: "Divisões estruturadas e visão de progresso",
+        mockup2Title: "Rotinas Lendárias",
+        mockup2Desc: "Divisões de treino consagradas",
+        mockup3Title: "Execução Correta",
+        mockup3Desc: "Instruções detalhadas de técnica e postura",
+        mockup4Title: "Registro de Treino",
+        mockup4Desc: "Registre cargas, repetições e sobrecarga",
+        sliderHint: "Deslize para explorar telas",
+        featuresEyebrow: "Principais Recursos",
+        featuresTitlePrefix: "DENTRO DO ",
+        featuresTitleHighlight: "SHAPESET",
+        feat1Title: "Programas Lendários",
+        feat1Desc: "Descubra rotinas estruturadas inspiradas nas filosofias de treino da era de ouro do fisiculturismo.",
+        feat2Title: "Aprenda a Forma Correta",
+        feat2Desc: "Instruções passo a passo e dicas de execução para maximizar a hipertrofia com segurança e evitar lesões.",
+        feat3Title: "Planos Semanais Estruturados",
+        feat3Desc: "Treinos divididos dia a dia para que você sempre saiba o que treinar, quando descansar e repetir.",
+        feat4Title: "Acompanhe sua Evolução",
+        feat4Desc: "Registre suas séries, cargas e repetições para garantir uma sobrecarga progressiva constante ao longo do tempo.",
+        inspiredEyebrow: "Metodologias Clássicas",
+        inspiredTitlePrefix: "INSPIRADO EM ",
+        inspiredTitleHighlight: "LENDAS",
+        inspiredSubtitle: "Programas estruturados com base nos métodos documentados publicamente dos maiores campeões mundiais:",
+        signupTitlePrefix: "SEJA O PRIMEIRO NO ",
+        signupTitleHighlight: "LANÇAMENTO iOS",
+        signupSubtitle: "Digite seu email para receber uma notificação instantânea assim que o ShapeSet estiver no ar na App Store.",
+        signupPlaceholder: "Digite seu email",
+        signupBtn: "Notificar-me",
+        signupSuccess: "✓ Obrigado! Avisaremos você assim que o ShapeSet for lançado no iOS.",
+        disclaimer: "Aviso legal: Os programas são inspirados em métodos de treino publicamente documentados. Este app não é afiliado nem endossado por nenhum atleta mencionado.",
+        copyright: "© 2026 ShapeSet. Todos os direitos reservados."
+      },
+      de: {
+        navLive: "Im Google Play",
+        moreLang: "Mehr",
+        heroTag: "⚡ Trainiere wie die Legenden",
+        heroTitlePrefix: "BAUE EINEN ",
+        heroTitleHighlight: "MEISTERKÖRPER",
+        heroTitleSuffix: " AUF",
+        heroSubtitle: "Meistere klassische Trainingspläne, inspiriert von Bodybuilding-Ikonen. Erhalte strukturierte Wochenroutinen, Übungsanleitungen und präzises Tracking.",
+        storeGetItOn: "JETZT BEI",
+        storeDownloadOn: "LADEN IM",
+        storeComingSoon: "Demnächst",
+        statRating: "4.9 Bewertung",
+        statPrograms: "Pro-Programme",
+        statTrial: "Kostenlose Testversion",
+        mockupEyebrow: "App-Erlebnis",
+        mockupTitlePrefix: "FÜR ECHTE ",
+        mockupTitleHighlight: "ATHLETEN ENTWICKELT",
+        mockup1Title: "Dashboard",
+        mockup1Desc: "Strukturierte Splits & Fortschrittsübersicht",
+        mockup2Title: "Legendäre Routinen",
+        mockup2Desc: "Bewährte Mehrtages-Trainingssplits",
+        mockup3Title: "Korrekte Form",
+        mockup3Desc: "Detaillierte Ausführungs- und Technikhinweise",
+        mockup4Title: "Workout Tracker",
+        mockup4Desc: "Gewicht, Wiederholungen & Progression loggen",
+        sliderHint: "Wischen zum Durchsuchen",
+        featuresEyebrow: "Kernfunktionen",
+        featuresTitlePrefix: "WAS IN ",
+        featuresTitleHighlight: "SHAPESET STECKT",
+        feat1Title: "Legendäre Programme",
+        feat1Desc: "Entdecke strukturierte Routinen, inspiriert von den Split-Philosophien der Golden-Era-Bodybuilding-Legenden.",
+        feat2Title: "Lerne die richtige Form",
+        feat2Desc: "Schritt-für-Schritt-Anleitung und Technik-Tipps für jede Übung zur sicheren Maximierung der Muskelhypertrophie.",
+        feat3Title: "Strukturierte Wochenpläne",
+        feat3Desc: "Mehrtägige Split-Programme nach Tagen organisiert, damit du immer weißt, was du trainierst, pausierst und wiederholst.",
+        feat4Title: "Verfolge deinen Fortschritt",
+        feat4Desc: "Erfasse deine Sätze, Gewichte und Wiederholungen sauber, um kontinuierliche progressive Überlastung zu sichern.",
+        inspiredEyebrow: "Klassische Methoden",
+        inspiredTitlePrefix: "INSPIRIERT VON ",
+        inspiredTitleHighlight: "LEGENDEN",
+        inspiredSubtitle: "Programme aufgebaut nach öffentlich dokumentierten Split-Methoden weltbekannter Champion-Athleten:",
+        signupTitlePrefix: "ERHALTE ZUERST ZUGANG ZUM ",
+        signupTitleHighlight: "iOS-START",
+        signupSubtitle: "Trage deine E-Mail-Adresse ein, um sofort benachrichtigt zu werden, sobald ShapeSet im Apple App Store verfügbar ist.",
+        signupPlaceholder: "E-Mail-Adresse eingeben",
+        signupBtn: "Benachrichtigen",
+        signupSuccess: "✓ Vielen Dank! Wir benachrichtigen dich, sobald ShapeSet für iOS verfügbar ist.",
+        disclaimer: "Rechtlicher Hinweis: Die Programme basieren auf öffentlich dokumentierten Trainingsmethoden. Diese App steht in keiner Verbindung zu den genannten Athleten.",
+        copyright: "© 2026 ShapeSet. Alle Rechte vorbehalten."
+      }
+    };
+
+    function setLanguage(lang) {
+      if (!translations[lang]) lang = 'en';
+      try {
+        localStorage.setItem('shapeset_lang', lang);
+      } catch (err) {}
+
+      // Update text elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key] !== undefined) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      // Update attributes (like placeholder)
+      document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+        const [attr, key] = el.getAttribute('data-i18n-attr').split(':');
+        if (translations[lang] && translations[lang][key] !== undefined) {
+          el.setAttribute(attr, translations[lang][key]);
+        }
+      });
+
+      // Update HTML lang tag
+      document.documentElement.lang = lang;
+
+      // Update active state on buttons and items
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        if (el.getAttribute('data-lang') === lang) {
+          el.classList.add('active');
+        } else {
+          el.classList.remove('active');
+        }
+      });
+
+      // Update trigger label for more dropdown
+      const moreLabel = document.getElementById('langDropdownLabel');
+      const triggerBtn = document.getElementById('langDropdownTrigger');
+      const container = document.getElementById('langDropdownContainer');
+      if (['es', 'pt', 'de'].includes(lang)) {
+        if (triggerBtn) triggerBtn.classList.add('active');
+        const langShort = { es: 'ES', pt: 'PT', de: 'DE' };
+        if (moreLabel) moreLabel.textContent = langShort[lang];
+      } else {
+        if (triggerBtn) triggerBtn.classList.remove('active');
+        if (moreLabel) moreLabel.textContent = translations[lang].moreLang || 'More';
+      }
+
+      // Close dropdown
+      if (container) container.classList.remove('open');
+      if (triggerBtn) triggerBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    function toggleLangDropdown(e) {
+      e.stopPropagation();
+      const container = document.getElementById('langDropdownContainer');
+      const trigger = document.getElementById('langDropdownTrigger');
+      if (container) {
+        const isOpen = container.classList.contains('open');
+        container.classList.toggle('open');
+        if (trigger) trigger.setAttribute('aria-expanded', !isOpen);
+      }
+    }
+
+    document.addEventListener('click', function(e) {
+      const container = document.getElementById('langDropdownContainer');
+      if (container && !container.contains(e.target)) {
+        container.classList.remove('open');
+        const trigger = document.getElementById('langDropdownTrigger');
+        if (trigger) trigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Initialize default language (English default)
+    let savedLang = 'en';
+    try {
+      savedLang = localStorage.getItem('shapeset_lang') || 'en';
+    } catch (err) {}
+    setLanguage(savedLang);
+
     function handleNotifySubmit(e) {
       e.preventDefault();
       const email = document.getElementById('userEmail').value;
-      if(email) {
+      if (email) {
         document.getElementById('iosNotifyForm').style.display = 'none';
         document.getElementById('successMessage').style.display = 'block';
       }
     }
   </script>
 </body>
+
 </html>
