@@ -622,7 +622,7 @@
       }
 
       .mockup-card {
-        flex: 0 0 240px;
+        flex: 0 0 215px;
       }
     }
 
@@ -636,20 +636,14 @@
     }
 
     .phone-notch {
-      position: absolute;
-      top: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70px;
-      height: 14px;
-      background: #000;
-      border-radius: 10px;
-      z-index: 10;
+      display: none;
     }
 
     .phone-screen {
       width: 100%;
-      height: 480px;
+      aspect-ratio: 523 / 1024;
+      height: auto;
+      display: block;
       object-fit: cover;
       object-position: top center;
     }
@@ -1101,51 +1095,58 @@
 
         <div class="mockup-carousel-container">
           <div class="mockup-scroll-wrapper" id="mockupScroll">
-            <!-- Screen 1 -->
+            <!-- Screen 1: Programs Hub -->
             <div class="mockup-card">
               <div class="phone-frame">
-                <div class="phone-notch"></div>
-                <img src="assets/1.jpg" alt="ShapeSet App Home Dashboard" class="phone-screen" loading="lazy" />
+                <img src="assets/screen-programs.jpg" alt="ShapeSet Program Hub" class="phone-screen" loading="lazy" />
               </div>
               <div class="mockup-caption">
-                <div class="mockup-caption-title" data-i18n="mockup1Title">Dashboard</div>
-                <div class="mockup-caption-desc" data-i18n="mockup1Desc">Structured splits & progress overview</div>
+                <div class="mockup-caption-title" data-i18n="mockup1Title">Programs Hub</div>
+                <div class="mockup-caption-desc" data-i18n="mockup1Desc">Female splits, six-packs & legend routines</div>
               </div>
             </div>
 
-            <!-- Screen 2 -->
+            <!-- Screen 2: Legendary Athletes -->
             <div class="mockup-card">
               <div class="phone-frame">
-                <div class="phone-notch"></div>
-                <img src="assets/2.jpg" alt="ShapeSet Workout Programs" class="phone-screen" loading="lazy" />
+                <img src="assets/screen-athletes.jpg" alt="ShapeSet Legendary Athletes" class="phone-screen" loading="lazy" />
               </div>
               <div class="mockup-caption">
-                <div class="mockup-caption-title" data-i18n="mockup2Title">Legendary Routines</div>
-                <div class="mockup-caption-desc" data-i18n="mockup2Desc">Proven multi-day workout splits</div>
+                <div class="mockup-caption-title" data-i18n="mockup2Title">Legendary Athletes</div>
+                <div class="mockup-caption-desc" data-i18n="mockup2Desc">Arnold, Ronnie, Chris Bumstead & more</div>
               </div>
             </div>
 
-            <!-- Screen 3 -->
+            <!-- Screen 3: Workout Execution -->
             <div class="mockup-card">
               <div class="phone-frame">
-                <div class="phone-notch"></div>
-                <img src="assets/3.jpg" alt="ShapeSet Exercise Details and Form" class="phone-screen" loading="lazy" />
+                <img src="assets/screen-workout.jpg" alt="ShapeSet Workout Execution" class="phone-screen" loading="lazy" />
               </div>
               <div class="mockup-caption">
-                <div class="mockup-caption-title" data-i18n="mockup3Title">Proper Form</div>
-                <div class="mockup-caption-desc" data-i18n="mockup3Desc">Detailed execution & technique cues</div>
+                <div class="mockup-caption-title" data-i18n="mockup3Title">Workout Execution</div>
+                <div class="mockup-caption-desc" data-i18n="mockup3Desc">Exercise order, sets, reps & tips</div>
               </div>
             </div>
 
-            <!-- Screen 4 -->
+            <!-- Screen 4: Core & Six Packs -->
             <div class="mockup-card">
               <div class="phone-frame">
-                <div class="phone-notch"></div>
-                <img src="assets/4.jpg" alt="ShapeSet Tracker" class="phone-screen" loading="lazy" />
+                <img src="assets/screen-core.jpg" alt="ShapeSet Core and Six Packs" class="phone-screen" loading="lazy" />
               </div>
               <div class="mockup-caption">
-                <div class="mockup-caption-title" data-i18n="mockup4Title">Workout Tracker</div>
-                <div class="mockup-caption-desc" data-i18n="mockup4Desc">Log weight, reps & progressive overload</div>
+                <div class="mockup-caption-title" data-i18n="mockup4Title">Core & Six Packs</div>
+                <div class="mockup-caption-desc" data-i18n="mockup4Desc">Targeted rotational & stability modules</div>
+              </div>
+            </div>
+
+            <!-- Screen 5: Streaks & Activity -->
+            <div class="mockup-card">
+              <div class="phone-frame">
+                <img src="assets/screen-streak.jpg" alt="ShapeSet Streaks and Progress" class="phone-screen" loading="lazy" />
+              </div>
+              <div class="mockup-caption">
+                <div class="mockup-caption-title" data-i18n="mockup5Title">Streaks & Progress</div>
+                <div class="mockup-caption-desc" data-i18n="mockup5Desc">Weekly activity, streaks & milestones</div>
               </div>
             </div>
           </div>
@@ -1333,14 +1334,16 @@
         mockupEyebrow: "App Experience",
         mockupTitlePrefix: "BUILT FOR ",
         mockupTitleHighlight: "SERIOUS ATHLETES",
-        mockup1Title: "Dashboard",
-        mockup1Desc: "Structured splits & progress overview",
-        mockup2Title: "Legendary Routines",
-        mockup2Desc: "Proven multi-day workout splits",
-        mockup3Title: "Proper Form",
-        mockup3Desc: "Detailed execution & technique cues",
-        mockup4Title: "Workout Tracker",
-        mockup4Desc: "Log weight, reps & progressive overload",
+        mockup1Title: "Programs Hub",
+        mockup1Desc: "Female splits, six-packs & legend routines",
+        mockup2Title: "Legendary Athletes",
+        mockup2Desc: "Arnold, Ronnie, Chris Bumstead & more",
+        mockup3Title: "Workout Execution",
+        mockup3Desc: "Exercise order, sets, reps & intensity tips",
+        mockup4Title: "Core & Six Packs",
+        mockup4Desc: "Targeted rotational & stability modules",
+        mockup5Title: "Streaks & Progress",
+        mockup5Desc: "Weekly activity, streaks & milestones",
         sliderHint: "Swipe to explore screens",
         featuresEyebrow: "Key Features",
         featuresTitlePrefix: "WHAT'S INSIDE ",
@@ -1383,14 +1386,16 @@
         mockupEyebrow: "Expérience Application",
         mockupTitlePrefix: "CONÇU POUR LES ",
         mockupTitleHighlight: "ATHLÈTES EXIGEANTS",
-        mockup1Title: "Tableau de Bord",
-        mockup1Desc: "Programmes structurés & suivi global",
-        mockup2Title: "Routines Légendaires",
-        mockup2Desc: "Splits d'entraînement éprouvés",
-        mockup3Title: "Exécution Parfaite",
-        mockup3Desc: "Conseils techniques détaillés",
-        mockup4Title: "Suivi des Séances",
-        mockup4Desc: "Enregistrez poids, répétitions et progression",
+        mockup1Title: "Hub Programmes",
+        mockup1Desc: "Splits féminins, abdos & routines de légende",
+        mockup2Title: "Athlètes de Légende",
+        mockup2Desc: "Arnold, Ronnie, Chris Bumstead & plus",
+        mockup3Title: "Exécution des Séances",
+        mockup3Desc: "Ordre des exercices, séries, reps & conseils",
+        mockup4Title: "Abdos & Gainage",
+        mockup4Desc: "Modules ciblés de stabilité et rotation",
+        mockup5Title: "Séries & Progression",
+        mockup5Desc: "Régularité hebdomadaire & accomplissements",
         sliderHint: "Glissez pour explorer les écrans",
         featuresEyebrow: "Fonctionnalités Clés",
         featuresTitlePrefix: "DÉCOUVREZ ",
@@ -1433,14 +1438,16 @@
         mockupEyebrow: "Experiencia de la App",
         mockupTitlePrefix: "CREADO PARA ",
         mockupTitleHighlight: "ATLETAS SERIOS",
-        mockup1Title: "Panel Principal",
-        mockup1Desc: "Rutinas estructuradas y progreso general",
-        mockup2Title: "Rutinas Legendarias",
-        mockup2Desc: "Splits de entrenamiento comprobados",
-        mockup3Title: "Técnica Correcta",
-        mockup3Desc: "Consejos detallados de ejecución y forma",
-        mockup4Title: "Registro de Entrenamientos",
-        mockup4Desc: "Registra peso, repeticiones y sobrecarga",
+        mockup1Title: "Centro de Programas",
+        mockup1Desc: "Rutinas femeninas, abdominales y leyendas",
+        mockup2Title: "Atletas Legendarios",
+        mockup2Desc: "Arnold, Ronnie, Chris Bumstead y más",
+        mockup3Title: "Ejecución del Entrenamiento",
+        mockup3Desc: "Orden de ejercicios, series, reps y consejos",
+        mockup4Title: "Abdominales y Core",
+        mockup4Desc: "Módulos de estabilidad y rotación",
+        mockup5Title: "Rachas y Progreso",
+        mockup5Desc: "Constancia semanal, hábitos y logros",
         sliderHint: "Desliza para explorar pantallas",
         featuresEyebrow: "Características Clave",
         featuresTitlePrefix: "DENTRO DE ",
@@ -1483,14 +1490,16 @@
         mockupEyebrow: "Experiência do App",
         mockupTitlePrefix: "CRIADO PARA ",
         mockupTitleHighlight: "ATLETAS DEDICADOS",
-        mockup1Title: "Painel de Controle",
-        mockup1Desc: "Divisões estruturadas e visão de progresso",
-        mockup2Title: "Rotinas Lendárias",
-        mockup2Desc: "Divisões de treino consagradas",
-        mockup3Title: "Execução Correta",
-        mockup3Desc: "Instruções detalhadas de técnica e postura",
-        mockup4Title: "Registro de Treino",
-        mockup4Desc: "Registre cargas, repetições e sobrecarga",
+        mockup1Title: "Hub de Treinos",
+        mockup1Desc: "Divisões femininas, abdômen e lendas",
+        mockup2Title: "Atletas Lendários",
+        mockup2Desc: "Arnold, Ronnie, Chris Bumstead e mais",
+        mockup3Title: "Execução do Treino",
+        mockup3Desc: "Ordem de exercícios, séries, reps e dicas",
+        mockup4Title: "Abdômen & Core",
+        mockup4Desc: "Módulos de estabilidade e rotação",
+        mockup5Title: "Sequências & Progresso",
+        mockup5Desc: "Consistência semanal, hábitos e conquistas",
         sliderHint: "Deslize para explorar telas",
         featuresEyebrow: "Principais Recursos",
         featuresTitlePrefix: "DENTRO DO ",
@@ -1533,14 +1542,16 @@
         mockupEyebrow: "App-Erlebnis",
         mockupTitlePrefix: "FÜR ECHTE ",
         mockupTitleHighlight: "ATHLETEN ENTWICKELT",
-        mockup1Title: "Dashboard",
-        mockup1Desc: "Strukturierte Splits & Fortschrittsübersicht",
-        mockup2Title: "Legendäre Routinen",
-        mockup2Desc: "Bewährte Mehrtages-Trainingssplits",
-        mockup3Title: "Korrekte Form",
-        mockup3Desc: "Detaillierte Ausführungs- und Technikhinweise",
-        mockup4Title: "Workout Tracker",
-        mockup4Desc: "Gewicht, Wiederholungen & Progression loggen",
+        mockup1Title: "Programm-Hub",
+        mockup1Desc: "Frauen-Splits, Sixpack & Legenden-Routinen",
+        mockup2Title: "Legenden-Athleten",
+        mockup2Desc: "Arnold, Ronnie, Chris Bumstead & mehr",
+        mockup3Title: "Trainings-Ausführung",
+        mockup3Desc: "Übungsreihenfolge, Sätze, Wdh. & Tipps",
+        mockup4Title: "Sixpack & Rumpf",
+        mockup4Desc: "Gezielte Rumpf- und Stabilitätsmodule",
+        mockup5Title: "Streaks & Fortschritt",
+        mockup5Desc: "Wöchentliche Konstanz, Gewohnheiten & Meilensteine",
         sliderHint: "Wischen zum Durchsuchen",
         featuresEyebrow: "Kernfunktionen",
         featuresTitlePrefix: "WAS IN ",
