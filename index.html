@@ -580,63 +580,126 @@
       line-height: 1.1;
     }
 
-    /* Horizontal Showcase Slider for Mobile */
-    .mockup-carousel-container {
+    /* ==========================================================================
+       SECTION 2: 3D COVERFLOW SHOWCASE
+       ========================================================================== */
+    .mockup-section {
+      padding: 30px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-title-wrap {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+    }
+
+    .mockup-container-wide {
+      width: 100%;
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 0 16px;
+      position: relative;
+    }
+
+    .coverflow-wrapper {
       position: relative;
       width: 100%;
-      overflow: hidden;
-      padding: 10px 0 20px;
-    }
-
-    .mockup-scroll-wrapper {
+      padding: 10px 0 15px;
       display: flex;
-      gap: 16px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding: 10px 20px 24px;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
+      align-items: center;
+      justify-content: center;
     }
 
-    .mockup-scroll-wrapper::-webkit-scrollbar {
-      display: none;
+    .coverflow-stage {
+      position: relative;
+      width: 100%;
+      height: 560px;
+      perspective: 1200px;
+      perspective-origin: 50% 40%;
+      overflow: visible;
+      touch-action: pan-y;
+      user-select: none;
+    }
+
+    @media (max-width: 768px) {
+      .coverflow-stage {
+        height: 500px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .coverflow-stage {
+        height: 440px;
+      }
     }
 
     .mockup-card {
-      flex: 0 0 260px;
-      scroll-snap-align: center;
-      position: relative;
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      width: 228px;
+      margin-left: -114px;
       border-radius: var(--radius-lg);
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      padding: 12px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-      transition: var(--transition);
+      padding: 10px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.75);
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                  opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                  filter 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                  border-color 0.45s ease,
+                  box-shadow 0.45s ease;
+      cursor: pointer;
+      will-change: transform, opacity;
+      transform-style: preserve-3d;
     }
 
-    @media (min-width: 768px) {
-      .mockup-scroll-wrapper {
-        justify-content: center;
-        flex-wrap: wrap;
-        overflow-x: visible;
-      }
-
+    @media (max-width: 480px) {
       .mockup-card {
-        flex: 0 0 215px;
+        width: 190px;
+        margin-left: -95px;
+        padding: 8px;
       }
+    }
+
+    .mockup-card.active-slide {
+      border-color: rgba(212, 160, 23, 0.45);
+      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.95), 0 0 35px -5px rgba(212, 160, 23, 0.3);
+      cursor: default;
     }
 
     .phone-frame {
       position: relative;
-      border-radius: 28px;
+      border-radius: 26px;
       overflow: hidden;
       background: #000;
-      border: 3px solid #2a2a30;
-      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+      border: 3.5px solid #23232a;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+      transition: border-color 0.4s ease, box-shadow 0.4s ease;
     }
 
-    .phone-notch {
-      display: none;
+    .mockup-card.active-slide .phone-frame {
+      border-color: #2e2f38;
+      box-shadow: inset 0 0 0 1px rgba(212, 160, 23, 0.3);
     }
 
     .phone-screen {
@@ -646,27 +709,114 @@
       display: block;
       object-fit: cover;
       object-position: top center;
+      pointer-events: none;
     }
 
     .mockup-caption {
       text-align: center;
       padding: 12px 6px 4px;
+      transition: opacity 0.4s ease;
     }
 
     .mockup-caption-title {
       font-family: var(--font-heading);
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       letter-spacing: 0.5px;
       color: var(--text-main);
       text-transform: uppercase;
+      margin-bottom: 2px;
     }
 
     .mockup-caption-desc {
-      font-size: 0.75rem;
+      font-size: 0.76rem;
       color: var(--text-sub);
+      line-height: 1.35;
+      max-width: 200px;
+      margin: 0 auto;
     }
 
-    /* Slider indicators */
+    /* Coverflow Arrow Buttons */
+    .coverflow-nav-btn {
+      position: absolute;
+      top: 40%;
+      transform: translateY(-50%);
+      z-index: 40;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(18, 18, 22, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.65);
+    }
+
+    .coverflow-prev {
+      left: 16px;
+    }
+
+    .coverflow-next {
+      right: 16px;
+    }
+
+    .coverflow-nav-btn:hover {
+      background: rgba(212, 160, 23, 0.18);
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 0 25px rgba(212, 160, 23, 0.45);
+    }
+
+    .coverflow-nav-btn:active {
+      transform: translateY(-50%) scale(0.96);
+    }
+
+    @media (max-width: 768px) {
+      .coverflow-nav-btn {
+        width: 42px;
+        height: 42px;
+      }
+      .coverflow-prev { left: 8px; }
+      .coverflow-next { right: 8px; }
+    }
+
+    /* Dots Indicators */
+    .coverflow-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .coverflow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.3s ease;
+    }
+
+    .coverflow-dot:hover {
+      background: rgba(212, 160, 23, 0.5);
+    }
+
+    .coverflow-dot.active {
+      width: 24px;
+      background: var(--gold-primary);
+      box-shadow: 0 0 12px rgba(212, 160, 23, 0.6);
+    }
+
+    /* Slider hint text */
     .slider-hint {
       text-align: center;
       font-size: 0.75rem;
@@ -1087,16 +1237,24 @@
 
     <!-- SECTION 2: PHONE MOCKUPS -->
     <section class="mockup-section">
-      <div class="container">
+      <div class="mockup-container-wide">
         <div class="section-title-wrap">
           <span class="section-eyebrow" data-i18n="mockupEyebrow">App Experience</span>
           <h2 class="section-title"><span data-i18n="mockupTitlePrefix">BUILT FOR </span><span class="gold-gradient-text" data-i18n="mockupTitleHighlight">SERIOUS ATHLETES</span></h2>
         </div>
 
-        <div class="mockup-carousel-container">
-          <div class="mockup-scroll-wrapper" id="mockupScroll">
+        <div class="coverflow-wrapper">
+          <!-- Left Arrow -->
+          <button type="button" class="coverflow-nav-btn coverflow-prev" id="mockupPrevBtn" aria-label="Previous screen" onclick="moveCoverSlide(-1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <!-- Stage for 3D Coverflow Cards -->
+          <div class="coverflow-stage" id="coverflowStage">
             <!-- Screen 1: Programs Hub -->
-            <div class="mockup-card">
+            <div class="mockup-card" data-slide-index="0" onclick="goToCoverSlide(0)">
               <div class="phone-frame">
                 <img src="assets/screen-programs.jpg" alt="ShapeSet Program Hub" class="phone-screen" loading="lazy" />
               </div>
@@ -1107,7 +1265,7 @@
             </div>
 
             <!-- Screen 2: Legendary Athletes -->
-            <div class="mockup-card">
+            <div class="mockup-card" data-slide-index="1" onclick="goToCoverSlide(1)">
               <div class="phone-frame">
                 <img src="assets/screen-athletes.jpg" alt="ShapeSet Legendary Athletes" class="phone-screen" loading="lazy" />
               </div>
@@ -1117,8 +1275,8 @@
               </div>
             </div>
 
-            <!-- Screen 3: Workout Execution -->
-            <div class="mockup-card">
+            <!-- Screen 3: Workout Execution (Active Center) -->
+            <div class="mockup-card" data-slide-index="2" onclick="goToCoverSlide(2)">
               <div class="phone-frame">
                 <img src="assets/screen-workout.jpg" alt="ShapeSet Workout Execution" class="phone-screen" loading="lazy" />
               </div>
@@ -1129,7 +1287,7 @@
             </div>
 
             <!-- Screen 4: Core & Six Packs -->
-            <div class="mockup-card">
+            <div class="mockup-card" data-slide-index="3" onclick="goToCoverSlide(3)">
               <div class="phone-frame">
                 <img src="assets/screen-core.jpg" alt="ShapeSet Core and Six Packs" class="phone-screen" loading="lazy" />
               </div>
@@ -1140,7 +1298,7 @@
             </div>
 
             <!-- Screen 5: Streaks & Activity -->
-            <div class="mockup-card">
+            <div class="mockup-card" data-slide-index="4" onclick="goToCoverSlide(4)">
               <div class="phone-frame">
                 <img src="assets/screen-streak.jpg" alt="ShapeSet Streaks and Progress" class="phone-screen" loading="lazy" />
               </div>
@@ -1151,15 +1309,25 @@
             </div>
           </div>
 
-          <div class="slider-hint">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M19 12H5M12 19l-7-7 7-7" />
+          <!-- Right Arrow -->
+          <button type="button" class="coverflow-nav-btn coverflow-next" id="mockupNextBtn" aria-label="Next screen" onclick="moveCoverSlide(1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
-            <span data-i18n="sliderHint">Swipe to explore screens</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </div>
+          </button>
+        </div>
+
+        <!-- Dot Indicators -->
+        <div class="coverflow-dots" id="coverflowDots">
+          <button type="button" class="coverflow-dot" onclick="goToCoverSlide(0)" aria-label="Slide 1"></button>
+          <button type="button" class="coverflow-dot" onclick="goToCoverSlide(1)" aria-label="Slide 2"></button>
+          <button type="button" class="coverflow-dot active" onclick="goToCoverSlide(2)" aria-label="Slide 3"></button>
+          <button type="button" class="coverflow-dot" onclick="goToCoverSlide(3)" aria-label="Slide 4"></button>
+          <button type="button" class="coverflow-dot" onclick="goToCoverSlide(4)" aria-label="Slide 5"></button>
+        </div>
+
+        <div class="slider-hint">
+          <span data-i18n="sliderHint">Use arrows, dots or swipe to explore screens</span>
         </div>
       </div>
     </section>
@@ -1344,7 +1512,7 @@
         mockup4Desc: "Targeted rotational & stability modules",
         mockup5Title: "Streaks & Progress",
         mockup5Desc: "Weekly activity, streaks & milestones",
-        sliderHint: "Swipe to explore screens",
+        sliderHint: "Use arrows, dots or swipe to explore screens",
         featuresEyebrow: "Key Features",
         featuresTitlePrefix: "WHAT'S INSIDE ",
         featuresTitleHighlight: "SHAPESET",
@@ -1396,7 +1564,7 @@
         mockup4Desc: "Modules ciblés de stabilité et rotation",
         mockup5Title: "Séries & Progression",
         mockup5Desc: "Régularité hebdomadaire & accomplissements",
-        sliderHint: "Glissez pour explorer les écrans",
+        sliderHint: "Utilisez les flèches, points ou glissez pour explorer",
         featuresEyebrow: "Fonctionnalités Clés",
         featuresTitlePrefix: "DÉCOUVREZ ",
         featuresTitleHighlight: "SHAPESET",
@@ -1448,7 +1616,7 @@
         mockup4Desc: "Módulos de estabilidad y rotación",
         mockup5Title: "Rachas y Progreso",
         mockup5Desc: "Constancia semanal, hábitos y logros",
-        sliderHint: "Desliza para explorar pantallas",
+        sliderHint: "Usa las flechas, puntos o desliza para explorar",
         featuresEyebrow: "Características Clave",
         featuresTitlePrefix: "DENTRO DE ",
         featuresTitleHighlight: "SHAPESET",
@@ -1500,7 +1668,7 @@
         mockup4Desc: "Módulos de estabilidade e rotação",
         mockup5Title: "Sequências & Progresso",
         mockup5Desc: "Consistência semanal, hábitos e conquistas",
-        sliderHint: "Deslize para explorar telas",
+        sliderHint: "Use as setas, pontos ou deslize para explorar",
         featuresEyebrow: "Principais Recursos",
         featuresTitlePrefix: "DENTRO DO ",
         featuresTitleHighlight: "SHAPESET",
@@ -1552,7 +1720,7 @@
         mockup4Desc: "Gezielte Rumpf- und Stabilitätsmodule",
         mockup5Title: "Streaks & Fortschritt",
         mockup5Desc: "Wöchentliche Konstanz, Gewohnheiten & Meilensteine",
-        sliderHint: "Wischen zum Durchsuchen",
+        sliderHint: "Pfeile, Punkte oder Wischen zum Durchsuchen nutzen",
         featuresEyebrow: "Kernfunktionen",
         featuresTitlePrefix: "WAS IN ",
         featuresTitleHighlight: "SHAPESET STECKT",
@@ -1666,6 +1834,136 @@
         document.getElementById('successMessage').style.display = 'block';
       }
     }
+
+    /* ==========================================================================
+       3D COVERFLOW LOGIC & NAVIGATION
+       ========================================================================== */
+    let currentSlide = 2; // Default to Ronnie Coleman (Screen 3, index 2) in the center
+    const totalSlides = 5;
+
+    function updateCoverflow() {
+      const cards = document.querySelectorAll('#coverflowStage .mockup-card');
+      const dots = document.querySelectorAll('#coverflowDots .coverflow-dot');
+      const stage = document.getElementById('coverflowStage');
+      if (!stage || !cards.length) return;
+
+      const stageWidth = stage.offsetWidth;
+
+      // Responsive spacing between card centers
+      let spacing = 225;
+      if (stageWidth < 480) {
+        spacing = 135;
+      } else if (stageWidth < 768) {
+        spacing = 165;
+      } else if (stageWidth < 1024) {
+        spacing = 195;
+      }
+
+      cards.forEach((card, i) => {
+        let diff = i - currentSlide;
+        // Wrap for circular shortest path
+        if (diff < -Math.floor(totalSlides / 2)) diff += totalSlides;
+        if (diff > Math.floor(totalSlides / 2)) diff -= totalSlides;
+
+        const absDiff = Math.abs(diff);
+
+        let translateX = diff * spacing;
+        let scale = 1;
+        let opacity = 1;
+        let zIndex = 1;
+        let rotateY = 0;
+        let translateZ = 0;
+        let filter = 'none';
+
+        if (diff === 0) {
+          scale = 1.08;
+          opacity = 1;
+          zIndex = 10;
+          translateZ = 40;
+          rotateY = 0;
+          filter = 'none';
+          card.classList.add('active-slide');
+        } else if (absDiff === 1) {
+          scale = 0.90;
+          opacity = 0.82;
+          zIndex = 6;
+          translateZ = 0;
+          rotateY = diff > 0 ? -12 : 12;
+          filter = 'brightness(0.85)';
+          card.classList.remove('active-slide');
+        } else {
+          // absDiff === 2
+          scale = 0.74;
+          opacity = 0.35;
+          zIndex = 2;
+          translateZ = -30;
+          rotateY = diff > 0 ? -22 : 22;
+          filter = 'brightness(0.55)';
+          card.classList.remove('active-slide');
+        }
+
+        card.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) scale(${scale}) rotateY(${rotateY}deg)`;
+        card.style.opacity = opacity;
+        card.style.zIndex = zIndex;
+        card.style.filter = filter;
+      });
+
+      // Update dots indicator
+      dots.forEach((dot, idx) => {
+        if (idx === currentSlide) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    function goToCoverSlide(index) {
+      currentSlide = ((index % totalSlides) + totalSlides) % totalSlides;
+      updateCoverflow();
+    }
+
+    function moveCoverSlide(delta) {
+      goToCoverSlide(currentSlide + delta);
+    }
+
+    // Touch swipe support on stage
+    const stageElement = document.getElementById('coverflowStage');
+    if (stageElement) {
+      let touchStartX = 0;
+      let touchStartY = 0;
+      stageElement.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+      }, { passive: true });
+
+      stageElement.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].screenX;
+        const touchEndY = e.changedTouches[0].screenY;
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
+          if (diffX < 0) {
+            moveCoverSlide(1); // Swipe left -> next
+          } else {
+            moveCoverSlide(-1); // Swipe right -> prev
+          }
+        }
+      }, { passive: true });
+    }
+
+    // Keyboard navigation (Left / Right Arrow)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') moveCoverSlide(-1);
+      if (e.key === 'ArrowRight') moveCoverSlide(1);
+    });
+
+    // Window resize handler
+    window.addEventListener('resize', updateCoverflow);
+
+    // Initialize Coverflow
+    updateCoverflow();
   </script>
 </body>
 
